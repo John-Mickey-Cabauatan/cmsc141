@@ -15,10 +15,16 @@ def dfa_intersection(self, M = DFA()):
     """
     states = set(itertools.product(self.states,M.states))
     alphabet = self.alphabet & M.alphabet
+    transition = dict()
 
+    
 
 
     dfa_intersection  = DFA(
-        
+        states = states,
+        alphabet  = alphabet,
+        transition = transition,
+        start_state = (self.start_state, M.start_state),
+        accept_states = set(itertools.product(self.accept_states, M.accept_states))
     )
     return dfa_intersection
