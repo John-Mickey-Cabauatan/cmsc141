@@ -14,4 +14,4 @@ def dfa_complement(self):
             transition = self.transition, start_state = self.start_state, 
             accept_states = self.states.difference(self.accept_states))
     )
-    return "\nFor DFA Complement...\n" + f"{str_complement}"
+    return "\n...For DFA Complement...\n" + f"{str_complement}"
