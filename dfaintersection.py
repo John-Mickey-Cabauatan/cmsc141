@@ -21,7 +21,7 @@ def dfa_intersection(self, M = DFA()):
         q1 = state[0]
         r1 = state[1]
         for symbol in alphabet:
-            transition[(state)[symbol]] = (self.transition[q1][symbol], M.transition[r1][symbol])
+            transition[(state)] = (self.transition[q1][symbol], M.transition[r1][symbol])
     """
     notes:
 

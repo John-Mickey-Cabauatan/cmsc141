@@ -1,5 +1,6 @@
 from dfa import DFA
 from dfacomplement import dfa_complement
+from dfaintersection import dfa_intersection
 
 if __name__ == "__main__":
         M = DFA(states={"q1", "q2", "q3"}, alphabet={"0","1"}, 
@@ -12,6 +13,10 @@ if __name__ == "__main__":
 
         N = dfa_complement(M)
         print(N)
+
+        O = dfa_intersection(M,N)
+        print(O)
+
 
         for input_string in ["100", "101", "11101010101010101", "110"]:
             print(M.__repr__() + " accepts " + input_string + "? " + str(M.accepts(input_string)))
