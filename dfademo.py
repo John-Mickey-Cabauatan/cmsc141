@@ -14,7 +14,13 @@ if __name__ == "__main__":
         N = dfa_complement(M)
         print(N)
 
-        O = dfa_intersection(M,N)
+        M2 = DFA(states={"r1", "r2"}, alphabet={"0","1"}, 
+                transition = {
+                    "r1": {"0": "r2", "1": "r2"},
+                    "r2": {"0": "r1", "1": "r2"}
+                }, start_state="q1", accept_states = {"q2"})
+
+        O = dfa_intersection(M,M2)
         print(O)
 
 
