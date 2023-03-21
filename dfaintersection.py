@@ -18,40 +18,35 @@ def dfa_intersection(self, M = DFA()):
     transition = {}
             
     for state in states:
+        q1 = state[0]
+        r1 = state[1]
         for symbol in alphabet:
-            
+            transition[(state)[symbol]] = (self.transition[q1][symbol], M.transition[r1][symbol])
+    """
+    notes:
 
+    state = (q1, q2)
 
+    M1_transition = {
+        "q1": {"0": "q1", "1": "q2"},
+        "q2": {"0": "q3", "1": "q2"},
+        "q3": {"0": "q2", "1": "q2"}
+    }
+    
+    M2_transition = {
+        "r1": {"0": "r1", "1": "r2"},
+        "r2": {"0": "r2", "1": "r2"},
+    }
+    
 
-                """
-                notes:
-
-                state = (q1, q2)
-
-                M1_transition = {
-                    "q1": {"0": "q1", "1": "q2"},
-                    "q2": {"0": "q3", "1": "q2"},
-                    "q3": {"0": "q2", "1": "q2"}
-                }
-                
-                M2_transition = {
-                    "r1": {"0": "r1", "1": "r2"},
-                    "r2": {"0": "r2", "1": "r2"},
-                }
-                
-
-                M1&M2_transition = {
-                    ("q1", "r2") : {"0": ("q1", "r2"), "1": ("q2", "r2") }
-                    ...
-                }     
-                
-                code must look like this:
-                M1&M2_transition[(q1, r1)][symbol] = (M1_transition[q1][symbol], M2_transition[r1][symbol])
-
-
-                """
-
-
+    M1&M2_transition = {
+        ("q1", "r2") : {"0": ("q1", "r2"), "1": ("q2", "r2") }
+        ...
+    }     
+    
+    code must look like this:
+    M1&M2_transition[(q1, r1)][symbol] = (M1_transition[q1][symbol], M2_transition[r1][symbol])
+    """
 
     dfa_intersection  = DFA(
         states = states,
