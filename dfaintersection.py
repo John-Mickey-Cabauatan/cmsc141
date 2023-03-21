@@ -20,8 +20,9 @@ def dfa_intersection(self, M = DFA()):
     for state in states:
         q1 = state[0]
         r1 = state[1]
+        transition[str(state)]={}
         for symbol in alphabet:
-            transition[(state)] = (self.transition[q1][symbol], M.transition[r1][symbol])
+            transition[str(state)][symbol] = (str(self.transition[q1][symbol]), str(M.transition[r1][symbol]))
     """
     notes:
 
