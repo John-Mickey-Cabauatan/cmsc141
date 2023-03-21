@@ -15,11 +15,14 @@ def dfa_intersection(self, M = DFA()):
     """
     states = set(itertools.product(self.states,M.states))
     alphabet = self.alphabet & M.alphabet
-    transition = dict()
+    transition = {}
             
     for state in states:
-        for alphabet in alphabet:
-            transition = {
+        for symbol in alphabet:
+            
+
+
+
                 """
                 notes:
 
@@ -41,11 +44,13 @@ def dfa_intersection(self, M = DFA()):
                     ("q1", "r2") : {"0": ("q1", "r2"), "1": ("q2", "r2") }
                     ...
                 }     
+                
+                code must look like this:
+                M1&M2_transition[(q1, r1)][symbol] = (M1_transition[q1][symbol], M2_transition[r1][symbol])
 
 
                 """
 
-            }
 
 
     dfa_intersection  = DFA(
