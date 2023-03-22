@@ -7,6 +7,7 @@ Date: 27 March 2023
 """
 
 from dfa import DFA
+import itertools
 
 def dfa_strip(self):
     
@@ -15,9 +16,9 @@ def dfa_strip(self):
 
     while newStates != {}:
         tempStates = {}
-        for r in newStates:
+        for state in newStates:
             for symbol in self.alphabet:
-                tempStates = tempStates | (str(self.transition[r][symbol]))
+                tempStates = tempStates | str(self.transition[state][symbol])
         newStates = tempStates.difference(reachableStates)
         reachableStates = reachableStates | newStates
 
@@ -26,7 +27,17 @@ def dfa_strip(self):
     transitionPrime = self.transition
 
     for (q, a) in set(itertools.product((self.states.difference(statePrime)), self.alphabet)):
-        
+        pop(str(transitionPrime[q][a]))
+
+    dfa_strip = DFA(
+        states = reachableStates,
+        alphabet = self.alphabet,
+        transition = transitionPrime,
+        start_state = self.start_state,
+        accept_states = accept_statesPrime
+    )
+    return dfa_strip
     
+
 
 
