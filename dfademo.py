@@ -18,11 +18,10 @@ if __name__ == "__main__":
                 transition = {
                     "r1": {"0": "r2", "1": "r2"},
                     "r2": {"0": "r1", "1": "r2"}
-                }, start_state="q1", accept_states = {"q2"})
+                }, start_state="r1", accept_states = {"r2"})
 
         O = dfa_intersection(M,M2)
         print(O)
-
 
         for input_string in ["100", "101", "11101010101010101", "110"]:
             print(M.__repr__() + " accepts " + input_string + "? " + str(M.accepts(input_string)))
