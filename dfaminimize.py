@@ -27,7 +27,7 @@ def dfa_strip(self):
     transitionPrime = self.transition
 
     for (q, a) in set(itertools.product((self.states.difference(statePrime)), self.alphabet)):
-        pop(str(transitionPrime[q][a]))
+        del transitionPrime[q][a]
 
     dfa_strip = DFA(
         states = reachableStates,
