@@ -16,6 +16,7 @@ def dfa_intersection(self, M = DFA()):
     states = set(itertools.product(list(self.states), list(M.states)))
     alphabet = self.alphabet & M.alphabet
     transition = {}
+
             
     for state in states:
         q1 = state[0]
@@ -54,6 +55,6 @@ def dfa_intersection(self, M = DFA()):
         alphabet  = alphabet,
         transition = transition,
         start_state = (self.start_state, M.start_state),
-        accept_states = set(itertools.product(self.accept_states, M.accept_states))
+        accept_states = set(itertools.product(self.accept_states, M.accept_states)) #possible error that it will type will not match tuple vs string
     )
     return dfa_intersection
