@@ -18,9 +18,9 @@ def dfa_strip(self):
         tempStates = {}
         for state in newStates:
             for symbol in self.alphabet:
-                tempStates = tempStates | str(self.transition[state][symbol])
+                tempStates = tempStates.update(self.transition[state][symbol])
         newStates = tempStates.difference(reachableStates)
-        reachableStates = reachableStates | newStates
+        reachableStates = reachableStates.update(newStates)
 
     statePrime = reachableStates
     accept_statesPrime = self.accept_states & reachableStates
@@ -37,6 +37,12 @@ def dfa_strip(self):
         accept_states = accept_statesPrime
     )
     return dfa_strip
+
+def dfa_minimize(self):
+    
+    M = dfa_strip(self)
+    
+   
     
 
 
