@@ -11,16 +11,16 @@ import itertools
 
 def dfa_strip(self):
     
-    reachableStates = {self.start_state}
-    newStates = {self.start_state}
+    reachableStates = self.start_state
+    newStates = self.start_state
 
-    while newStates != {}:
-        tempStates = {}
+    while newStates != ():
+        tempStates = self.start_state
         for state in newStates:
             for symbol in self.alphabet:
-                tempStates = tempStates.update(self.transition[state][symbol])
+                tempStates.add(self.transition[state][symbol])
         newStates = tempStates.difference(reachableStates)
-        reachableStates = reachableStates.update(newStates)
+        reachableStates = reachableStates.union(newStates)
 
     statePrime = reachableStates
     accept_statesPrime = self.accept_states & reachableStates
@@ -41,6 +41,11 @@ def dfa_strip(self):
 def dfa_minimize(self):
     
     M = dfa_strip(self)
+    G = {dict(itertools.product(self.states, self.states)) : {0}}
+    #G = { (q, r): {0} for q in selfl.states for r in self.states}
+
+
+
     
    
     
