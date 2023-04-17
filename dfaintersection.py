@@ -55,7 +55,7 @@ def dfa_intersection(self, M = DFA()):
         states = states,
         alphabet  = alphabet,
         transition = transition,
-        start_state = (self.start_state, M.start_state),
+        start_state = {(self.start_state, M.start_state)},
         accept_states = set(itertools.product(self.accept_states, M.accept_states)) 
     )
     return dfa_intersection
