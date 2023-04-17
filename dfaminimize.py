@@ -1,5 +1,5 @@
 """
-CMSC 141 X Exercise 1
+CMSC 141 S Exercise 1
 Name:   John Mickey Cabauatan
         Cedric Ramos
         Jianne Rimar Sison
