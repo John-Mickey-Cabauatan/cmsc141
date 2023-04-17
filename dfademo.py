@@ -1,6 +1,7 @@
 from dfa import DFA
 from dfacomplement import dfa_complement
 from dfaintersection import dfa_intersection
+from dfaminimize import dfa_minimize
 
 if __name__ == "__main__":
         M = DFA(states={"q1", "q2", "q3"}, alphabet={"0","1"}, 
@@ -29,3 +30,8 @@ if __name__ == "__main__":
 
         for input_string in ["100", "101", "11101010101010101", "110"]:
             print(M.__repr__() + " accepts " + input_string + "? " + str(M.accepts(input_string)))
+
+        # Minimize M
+        P = dfa_minimize(M)
+        print("\nMinimized DFA: \n")
+        print(P)
