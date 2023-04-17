@@ -1,5 +1,5 @@
 """
-CMSC 141 S Exercise 1
+CMSC 141 X Exercise 1
 Name:   John Mickey Cabauatan
         Cedric Ramos
         Jianne Rimar Sison
@@ -11,14 +11,13 @@ import itertools
 
 def dfa_strip(self):
     
-    reachableStates = set()
-    newStates = self.start_state
+    reachableStates = set(self.start_state)
+    newStates = set(self.start_state)
 
     while newStates != ():
         tempStates = set()
         for state in newStates:
             for symbol in self.alphabet:
-                if state in self.transition and symbol in self.transition[state]:
                     tempStates.add(self.transition[state][symbol])
         newStates = tempStates.difference(reachableStates)
         reachableStates = reachableStates.union(newStates)
